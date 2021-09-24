@@ -1,5 +1,4 @@
 from finch import Finch
-import time
 import asyncio
 import random
 from tkinter import *

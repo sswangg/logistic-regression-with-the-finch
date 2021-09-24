@@ -1,7 +1,6 @@
 # A simple program that changes the Finch LED based on orientation.
 
 from finch import Finch
-from random import randint
 
 # Instantiate the Finch object and connect to Finch
 tweety = Finch()

@@ -1,6 +1,5 @@
 # A simple program that changes the Finch buzzer based on x-axis orientation.
 from finch import Finch
-from random import randint
 
 # Instantiate the Finch object and connect to Finch
 tweety = Finch()

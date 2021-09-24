@@ -15,7 +15,7 @@ import sys
 VENDOR_ID = 0x2354
 DEVICE_ID = 0x1111
 
-HIDAPI_LIBRARY_PATH = os.environ.get('HIDAPI_LIB_PATH', './')
+HIDAPI_LIBRARY_PATH = os.environ.get('HIDAPI_LIB_PATH', 'MyFinch/')
 PING_FREQUENCY_SECONDS = 2.0 # seconds
 
 # Detect which operating system is present and load corresponding library
@@ -24,20 +24,20 @@ system = platform.system()
 
 if system == 'Windows':
     if sys.maxsize > 2**32:
-        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "hidapi64.dll"))
+        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "MyFinch/hidapi64.dll"))
     else:
-        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "hidapi32.dll"))
+        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "MyFinch/hidapi32.dll"))
         
 elif system == 'Linux':
     if sys.maxsize > 2**32:
-        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "libhidapi64.so"))
+        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "MyFinch/libhidapi64.so"))
     else:
-        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "libhidapi32.so"
+        hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "MyFinch/libhidapi32.so"
                                            ))
 elif system == 'Darwin':
-    hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "libhidapi.dylib"))
+    hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "MyFinch/libhidapi.dylib"))
 else:
-    hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "libhidapipi.so"))
+    hid_api = ctypes.CDLL(os.path.join(HIDAPI_LIBRARY_PATH, "MyFinch/libhidapipi.so"))
     
 def _inherit_docstring(cls):
     def doc_setter(method):

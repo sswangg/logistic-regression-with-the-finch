@@ -14,7 +14,6 @@ http://www.finchrobot.com
 """
 
 from finch import Finch
-from time import sleep
 import notes
 
 #Main function for the music player example program"""

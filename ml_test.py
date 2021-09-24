@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LogisticRegression
+from finch import Finch
 from sklearn.metrics import classification_report, confusion_matrix
 
 """
@@ -32,16 +33,16 @@ data_to_scatter("other_data.txt", "blue")
 plt.show()
 
 f_in = open("forward_data.txt", "r")
-data = [[float(a) for a in s.split()] for s in f_in.readlines()[1:]]
+data = [[float(a) for a in s.split()] for s in f_in.readlines()]
 f_in.close()
-f_in = open("other_data.txt_data.txt", "r")
-data += [[float(a) for a in s.split()] for s in f_in.readlines()[1:]]
+f_in = open("new_other_data.txt", "r")
+data += [[float(a) for a in s.split()] for s in f_in.readlines()]
 f_in.close()
 
 # All wheel speed data, 100 that go forwards then 1000 that don't
 wheel_data_x = np.array([a for l in data for a in l]).reshape(-1, 2)
 # 100 1s for going forwards, 1000 0s for not
-wheel_data_y = np.array([1 for i in range(100)]+[0 for j in range(1000)])
+wheel_data_y = np.array([1 for i in range(100)]+[0 for j in range(400)])
 
 model = LogisticRegression(solver='liblinear', random_state=0)
 model.fit(wheel_data_x, wheel_data_y)
