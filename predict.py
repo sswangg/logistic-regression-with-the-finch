@@ -14,15 +14,15 @@ finch = Finch()
 
 
 def data_to_scatter(file, color):
-    f_in = open(file, "r")
-    data = [[float(a) for a in s.split()] for s in f_in.readlines()[1:]]
-    f_in.close()
+    f_i = open(file, "r")
+    d = [[float(a) for a in s.split()] for s in f_i.readlines()[1:]]
+    f_i.close()
 
-    x_arr = np.array([t[0] for t in data])
-    y_arr = np.array([t[1] for t in data])
+    x_arr = np.array([t[0] for t in d])
+    y_arr = np.array([t[1] for t in d])
     plt.scatter(x_arr, y_arr, color=color)
 
-    return np.array([a for l in data for a in l]).reshape(-1, 2)
+    return np.array([a for l in d for a in l]).reshape(-1, 2)
 
 
 # Makes a plot showing data points that result in the robot going forwards in red and data points that result in the
