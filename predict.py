@@ -15,7 +15,7 @@ finch = Finch()
 
 def data_to_scatter(file, color):
     f_i = open(file, "r")
-    d = [[float(a) for a in s.split()] for s in f_i.readlines()[1:]]
+    d = [[float(a) for a in s.split()] for s in f_i.readlines()]
     f_i.close()
 
     x_arr = np.array([t[0] for t in d])
